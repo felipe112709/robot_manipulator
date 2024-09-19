@@ -1,0 +1,48 @@
+<sdf version='1.7'>
+    <world name='field'>
+        <physics name='1ms' type='ignored'>
+            <max_step_size>0.001</max_step_size>
+            <real_time_factor>1</real_time_factor>
+            <real_time_update_rate>1000</real_time_update_rate>
+        </physics>
+        <plugin name='ignition::gazebo::systems::Physics' filename='ignition-gazebo-physics-system'/>
+        <plugin name='ignition::gazebo::systems::UserCommands' filename='ignition-gazebo-user-commands-system'/>
+        <plugin name='ignition::gazebo::systems::SceneBroadcaster' filename='ignition-gazebo-scene-broadcaster-system'/>
+        <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+            <render_engine>ogre2</render_engine>
+        </plugin>
+        <scene>
+            <ambient>1 1 1 1</ambient>
+            <background>0.8 0.8 0.8 1</background>
+            <shadows>1</shadows>
+        </scene>
+        
+        <include>
+             <pose>0 0 10 0 -0 0</pose>
+            <uri>
+                https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sun
+            </uri>
+        </include>
+        
+        <gravity>0 0 -9.8</gravity>
+        <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+        <atmosphere type='adiabatic'/>
+
+        <include>
+            <uri>ground</uri>
+            <name>ground</name>
+            <pose>5.0 5.0 0 0 0 0</pose>
+        </include>
+
+        
+        <include>
+            <uri>tomato_0</uri>
+            <name>tomato_0</name>
+            <pose>0 0 0 0 0 0</pose>
+        </include>
+
+        
+
+    </world>
+</sdf>
+
